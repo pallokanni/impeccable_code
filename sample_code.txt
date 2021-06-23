@@ -1,0 +1,61 @@
+#include<iostream>
+#include<stdio.h>
+#include<vector>
+#include<map>
+#include<list>
+#include<limits.h>
+#include<algorithm>
+#include<stdlib.h>
+#include<string>
+#include<math.h>
+ 
+using namespace std;
+ 
+#define impeccable_code 0
+#define MOD 1000000007
+ 
+inline int fscan(){
+    int a=0;
+   char c= getchar();
+         
+            while (c < '0' || c>'9')c=getchar();
+        
+            while( c >= '0' && c <= '9' )
+             {
+               a = (a<<3)+(a<<1) + c-'0';
+               c=getchar();
+             }
+        
+         return a;    
+}
+ 
+long long int pw_mod(long long int base,long long int exp)
+{
+  if(base==1)
+    return 1;
+  
+  long long int res = 1;
+
+  while(exp>0){
+    if(exp&1)res =(res*base)%MOD;
+    base=(base*base)%MOD;
+    exp>>=1;
+  }
+  
+  return res;
+}
+
+int gcd(int A, int B)
+{
+	if(A % B == 0)
+	{
+		return B;
+	}
+	
+	gcd(B, A%B);
+}
+ 
+int main() {
+  
+return impeccable_code;
+}
