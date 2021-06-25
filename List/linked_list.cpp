@@ -65,15 +65,17 @@ int gcd(int A, int B)
 
 class linkedList
 {
-    // Access specifier
-    public:
-
+//Access specifier
+private:
     //Data Members
     struct node
     {
         int data;
         struct node *next;
     }*head;
+
+//Access specifier
+public:
 
     //Default Constructor
     linkedList()
@@ -128,7 +130,7 @@ class linkedList
     }
 
     //Function to add new_node at particular Index
-    void addIndex(int val, int index)
+    bool addIndex(int val, int index)
     {
         node *new_node = (node*)malloc(sizeof(node));
         new_node->data = val;
@@ -140,6 +142,7 @@ class linkedList
         if(index <= 0)
         {
             cout<<"Invalid Index: "<<index<<endl;
+            return false;
         }
         else if(index == 1)
         {
@@ -159,6 +162,7 @@ class linkedList
             if(temp == NULL)
             {
                 cout<<"Invalid Index: "<<index<<endl;
+                return false;
             }
             else
             {
@@ -166,7 +170,7 @@ class linkedList
                 temp->next     = new_node;
             }
         }
-
+        return true;
     }
 
     //Function to delete front node of the list
@@ -216,7 +220,7 @@ class linkedList
     }
 
     //Function to delete node at particular Index
-    void deleteIndex(int index)
+    bool deleteIndex(int index)
     {
         node *temp, *prev;
         temp = head;
@@ -225,6 +229,7 @@ class linkedList
         if(index <= 0)
         {
             cout<<"DeleteIndex: Invalid Index: "<<index<<endl;
+            return false;
         }
         if(index == 1)
         {
@@ -245,6 +250,7 @@ class linkedList
             if(temp == NULL)
             {
                 cout<<"Invalid Index: "<<index<<endl;
+                return false;
             }
             else
             {
@@ -253,6 +259,7 @@ class linkedList
                 free(temp);
             }
         }
+        return true;
     }
 
     void printList()
